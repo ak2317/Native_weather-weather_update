@@ -5,6 +5,7 @@ const timezone = document.getElementById('time-zone');
 const countryEl = document.getElementById('country');
 const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
+const place= document.getElementById('city');
 
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -116,10 +117,12 @@ const showSearchData = async (data) =>{
     let {speed} = data.wind;
     let wind_speed = speed;
     let {lon,lat} = data.coord;
+    let city = data.name;
     
     
     countryEl.innerHTML = lat + 'N ' + lon+'E'
 
+    place.innerHTML=`<div id="city">weather in ${city}</div>`
     currentWeatherItemsEl.innerHTML = 
     `<div class="weather-item">
         <div>Humidity</div>
